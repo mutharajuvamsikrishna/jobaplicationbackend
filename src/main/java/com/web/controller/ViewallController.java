@@ -80,7 +80,7 @@ public class ViewallController {
 
 			try {
 				// Send OTP via email
-				sendEmail3(email, "ONiESoft CRM System User ChangePassword OTP Verification",
+				sendEmail3(email, "ONiESoft JobApplication ChangePassword OTP Verification",
 						"Hello " + ename + ",\n\nYour OTP is: " + otp + " and it is valid for 5 minutes.");
 				System.out.println("Email sent successfully.");
 			} catch (MessagingException e) {
@@ -187,7 +187,7 @@ public class ViewallController {
 
 			try {
 				// Send OTP via email
-				sendEmail3(adminEmail, "ONiESoft CRM System Admin Change Password OTP Verification",
+				sendEmail3(adminEmail, "ONiESoft  JobApplication Admin Change Password OTP Verification",
 						"Hello " + ename + ",\n\nYour OTP is: " + otp + " and it is valid for 5 minutes.");
 				System.out.println("Email sent successfully.");
 			} catch (MessagingException e) {

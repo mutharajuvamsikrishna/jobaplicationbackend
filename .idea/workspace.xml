@@ -232,6 +232,17 @@
       <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.xml.core/system_catalog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.xml.core/system_catalog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/ViewallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/ViewallController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/model/Pro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/model/Pro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/UserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/UserDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/controller/RegisterController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/controller/RegisterController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/controller/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/controller/ViewallController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/controller/ViewallController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/controller/ViewallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/controller/ViewallController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/model/Pro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/model/Pro.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/maven/com.slr/Springapp7/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/maven/com.slr/Springapp7/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Springappn2/target/classes/META-INF/maven/com.vamsi/Springappn2/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Springappn2/target/classes/META-INF/maven/com.vamsi/Springappn2/pom.properties" afterDir="false" />
@@ -272,14 +283,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "configurable.group.build"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="EmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.web.EmployeeApplication" />
@@ -329,6 +340,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/web/EmployeeApplication.java</url>
           <line>12</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/web/controller/RegisterController.java</url>
+          <line>358</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

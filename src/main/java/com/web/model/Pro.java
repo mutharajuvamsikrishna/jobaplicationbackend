@@ -1,10 +1,6 @@
 package com.web.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Pro")
@@ -91,6 +87,7 @@ public class Pro {
 	public void setId(String id) {
 		this.id = id;
 	}
+
 
 	public String getEmail() {
 		return email;

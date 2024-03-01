@@ -87,15 +87,13 @@ public class RegisterController {
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody Register authenticationRequest) throws Exception {
 
 		try {
-			userAuthentication.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
-					authenticationRequest.getPassword()));
+		userDetailsService.loginCred(authenticationRequest);
 		} catch (BadCredentialsException e) {
 			throw new Exception("Incorrect username or password", e);
 		}
 
-		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
 
-		final String jwt = jwtTokenUtil.generateToken(userDetails);
+		final String jwt = jwtTokenUtil.generateToken(authenticationRequest.getEmail());
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
@@ -112,9 +110,9 @@ public class RegisterController {
 			throw new Exception("Incorrect username or password", e);
 		}
 
-		final UserDetails userDetails = userDetailsService1.loadUserByUsername(authenticationRequest.getEmail());
 
-		final String jwt = jwtTokenUtil.generateToken(userDetails);
+
+		final String jwt = jwtTokenUtil.generateToken(authenticationRequest.getEmail());
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
@@ -220,14 +218,14 @@ public class RegisterController {
 				+ "The details are …\n" + "**************************\n" + "Name: " + ename + "\n" + "Mobile Number: "
 				+ mob + "\n" + "Email ID: " + email + "\n" + "Password: " + password + "\n"
 				+ "**************************\n"
-				+ "Please http://localhost:5173/login ONiE Soft CRM System to check and further usage.\n"
-				+ "With Best Wishes,\n" + "ONiE Soft CRM Support.\n" + "{support@oniesoft.com}";
+				+ "Please http://localhost:5173/login ONiE Soft JobApplication System to check and further usage.\n"
+				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n" + "{support@oniesoft.com}";
 		emailservice.sendEmail(recipientEmail, subject, body);
 		String adminRecipientEmail = "slrvamsikrishna@gmail.com";
 		String adminSubject = ename + " Registered with ONiE Soft Job Application";
 		String adminBody = "**************************\n" + "Name: " + ename + "\n" + "Mobile Number: " + mob + "\n"
 				+ "Email ID: " + email + "\n" + "Password: " + password + "\n" + "**************************\n"
-				+ "Please check and confirm for further access.\n" + "With Best Wishes,\n" + "ONiE Soft CRM Support.\n";
+				+ "Please check and confirm for further access.\n" + "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n";
 		emailservice.sendEmail(adminRecipientEmail, adminSubject, adminBody);
 		return "Details Saved SucessFully";
 	}
@@ -240,19 +238,19 @@ public class RegisterController {
 		String recipientEmail = emp.getEmail();
 		String password = emp.getPassword();
 		String ename = emp.getEname();
-		String subject = "ONiE Soft CRM: " + ename + " Registration Changes is Successful !";
-		String body = "Dear " + ename + ",\n" + "Your Registration is Changed Successful with ONiE Soft CRM System.\n"
+		String subject = "ONiE Soft JobApplication: " + ename + " Registration Changes is Successful !";
+		String body = "Dear " + ename + ",\n" + "Your Registration is Changed Successful with ONiE Soft JobApplication System.\n"
 				+ "The details are …\n" + "**************************\n" + "Name: " + ename + "\n" + "Mobile Number: "
 				+ mob + "\n" + "Email ID: " + email + "\n" + "Password: " + password + "\n"
 				+ "**************************\n"
-				+ "Please http://localhost:5173/login ONiE Soft CRM System to check and further usage.\n"
-				+ "With Best Wishes,\n" + "ONiE Soft CRM Support.\n" + "{support@oniesoft.com}";
+				+ "Please http://localhost:5173/login ONiE Soft JobApplication System to check and further usage.\n"
+				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n" + "{support@oniesoft.com}";
 		emailservice.sendEmail(recipientEmail, subject, body);
 		String adminRecipientEmail = "slrvamsikrishna@gmail.com";
-		String adminSubject = ename + " Registered Details Changed in ONiE Soft CRM";
+		String adminSubject = ename + " Registered Details Changed in ONiE Soft JobApplication";
 		String adminBody = "**************************\n" + "Name: " + ename + "\n" + "Mobile Number: " + mob + "\n"
 				+ "Email ID: " + email + "\n" + "Password: " + password + "\n" + "**************************\n"
-				+ "Please check and confirm for further access.\n" + "With Best Wishes,\n" + "ONiE Soft CRM Support.\n";
+				+ "Please check and confirm for further access.\n" + "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n";
 		emailservice.sendEmail(adminRecipientEmail, adminSubject, adminBody);
 		return "Details Saved SucessFully";
 	}
@@ -353,20 +351,20 @@ public class RegisterController {
 		String recipientEmail = emp.getEmail();
 		String password = emp.getPassword();
 		String ename = emp.getEname();
-		String subject = "ONiE Soft CRM: " + ename + " Admin Registration is Successful !";
-		String body = "Dear " + ename + ",\n" + "Your Admin Registration is Successful with ONiE Soft CRM System.\n"
+		String subject = "ONiE Soft JobApplication: " + ename + " Admin Registration is Successful !";
+		String body = "Dear " + ename + ",\n" + "Your Admin Registration is Successful with ONiE Soft JobApplication System.\n"
 				+ "The details are …\n" + "**************************\n" + "ID: " + id + "\n" + "Name: " + ename + "\n"
 				+ "Mobile Number: " + mob + "\n" + "Email ID: " + email + "\n" + "Password: " + password + "\n"
 				+ "**************************\n"
-				+ "Please http://localhost:5173/login ONiE Soft CRM System to check and further usage.\n"
-				+ "With Best Wishes,\n" + "ONiE Soft CRM Support.\n" + "{support@oniesoft.com}";
+				+ "Please http://localhost:5173/login ONiE Soft JobApplication System to check and further usage.\n"
+				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n" + "{support@oniesoft.com}";
 		emailservice.sendEmail(recipientEmail, subject, body);
 		String adminRecipientEmail = "slrvamsikrishna@gmail.com";
-		String adminSubject = ename + " Admin Registered with ONiE Soft CRM";
+		String adminSubject = ename + " Admin Registered with ONiE Soft JobApplication";
 		String adminBody = "**************************\n" + "ID: " + id + "\n" + "Name: " + ename + "\n"
 				+ "Mobile Number: " + mob + "\n" + "Email ID: " + email + "\n" + "Password: " + password + "\n"
 				+ "**************************\n" + "Please check and confirm for further access.\n"
-				+ "With Best Wishes,\n" + "ONiE Soft CRM Support.\n";
+				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n";
 		emailservice.sendEmail(adminRecipientEmail, adminSubject, adminBody);
 		return "adminsaved";
 	}
