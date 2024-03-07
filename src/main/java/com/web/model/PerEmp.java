@@ -35,6 +35,16 @@ public class PerEmp {
 	private String city;
 	private String state;
 	private String pinnumber;
+	private String aadharFile;
+	private String panFile;
+
+	private String visaFile;
+
+
+
+	private String passportFile;
+
+	private String otherFile;
 
 	public PerEmp() {
 
@@ -184,19 +194,72 @@ public class PerEmp {
 		this.pinnumber = pinnumber;
 	}
 
-	@Override
-	public String toString() {
-		return "PerEmp [regno=" + regno + ", email=" + email + ", adhar=" + adhar + ", pan=" + pan + ", val1=" + val1
-				+ ", status1=" + status1 + ", passportnumber=" + passportnumber + ", exp1=" + exp1 + ", val2=" + val2
-				+ ", status2=" + status2 + ", visanumber=" + visanumber + ", exp2=" + exp2 + ", gender=" + gender
-				+ ", date=" + date + ", adress=" + adress + ", city=" + city + ", state=" + state + ", pinnumber="
-				+ pinnumber + ", getRegno()=" + getRegno() + ", getEmail()=" + getEmail() + ", getAdhar()=" + getAdhar()
-				+ ", getPan()=" + getPan() + ", getVal1()=" + getVal1() + ", getStatus1()=" + getStatus1()
-				+ ", getPassportnumber()=" + getPassportnumber() + ", getExp1()=" + getExp1() + ", getVal2()="
-				+ getVal2() + ", getStatus2()=" + getStatus2() + ", getVisanumber()=" + getVisanumber() + ", getExp2()="
-				+ getExp2() + ", getGender()=" + getGender() + ", getDate()=" + getDate() + ", getAdress()="
-				+ getAdress() + ", getCity()=" + getCity() + ", getState()=" + getState() + ", getPinnumber()="
-				+ getPinnumber() + "]";
+	public String getAadharFile() {
+		return aadharFile;
 	}
 
+	public void setAadharFile(String aadharFile) {
+		this.aadharFile = aadharFile;
+	}
+
+	public String getPanFile() {
+		return panFile;
+	}
+
+	public void setPanFile(String panFile) {
+		this.panFile = panFile;
+	}
+
+	public String getVisaFile() {
+		return visaFile;
+	}
+
+	public void setVisaFile(String visaFile) {
+		this.visaFile = visaFile;
+	}
+
+	public String getPassportFile() {
+		return passportFile;
+	}
+
+	public void setPassportFile(String passportFile) {
+		this.passportFile = passportFile;
+	}
+
+	public String getOtherFile() {
+		return otherFile;
+	}
+
+	public void setOtherFile(String otherFile) {
+		this.otherFile = otherFile;
+	}
+
+	@Override
+	public String toString() {
+		return "PerEmp{" +
+				"regno=" + regno +
+				", email='" + email + '\'' +
+				", adhar='" + adhar + '\'' +
+				", pan='" + pan + '\'' +
+				", val1='" + val1 + '\'' +
+				", status1='" + status1 + '\'' +
+				", passportnumber='" + passportnumber + '\'' +
+				", exp1='" + exp1 + '\'' +
+				", val2='" + val2 + '\'' +
+				", status2='" + status2 + '\'' +
+				", visanumber='" + visanumber + '\'' +
+				", exp2='" + exp2 + '\'' +
+				", gender='" + gender + '\'' +
+				", date='" + date + '\'' +
+				", adress='" + adress + '\'' +
+				", city='" + city + '\'' +
+				", state='" + state + '\'' +
+				", pinnumber='" + pinnumber + '\'' +
+				", aadharFile='" + aadharFile + '\'' +
+				", panFile='" + panFile + '\'' +
+				", visaFile='" + visaFile + '\'' +
+				", passportFile='" + passportFile + '\'' +
+				", otherFile='" + otherFile + '\'' +
+				'}';
+	}
 }
