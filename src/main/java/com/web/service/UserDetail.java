@@ -36,7 +36,7 @@ public class UserDetail implements UserDetailsService {
 			throw new UsernameNotFoundException("User not found with email: " + email);
 		}
 
-		return new User(user.getEmail(), user.getPassword(), new ArrayList<>());
+		return new User(user.getEmail(), user.getEmail(), new ArrayList<>());
 	}
 
 	public void loginCred(Register register) throws UsernameNotFoundException {

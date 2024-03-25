@@ -1,5 +1,6 @@
 package com.web.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,11 +13,11 @@ import java.nio.file.StandardCopyOption;
 
 @Service
 public class FileService {
-
-    private String uploadDir = "C:\\Users\\slrva\\springwork1\\JobApplication\\src\\Asserts";
+@Value("${file.upload-dir}")
+    private String uploadDir;
 
     public String saveFile(Long regno, String fileType, MultipartFile file) throws IOException {
-
+System.out.println(uploadDir);
 
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         String userDir = uploadDir + "/" + regno;

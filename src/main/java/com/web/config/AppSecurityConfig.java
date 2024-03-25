@@ -26,7 +26,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
-
+@Autowired
+private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(myUserDetailsService);
@@ -46,21 +47,38 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.csrf().disable().authorizeRequests()
-				.antMatchers("/authenticate", "/authenticate1", "/register", "/save", "/otp1", "/changepassword",
+		httpSecurity.csrf().disable()
+				.authorizeRequests()
+				.antMatchers(
+						"/authenticate", "/authenticate1", "/register", "/save", "/otp1", "/changepassword",
 						"/otp5", "/changepassword1", "/adminregister", "/adminotp1", "/adminsave",
 						"/adminchangepassword", "/adminotp5", "/adminchangepassword1", "/alluserregisters",
 						"/alladminregisters", "/superadminlogin", "/superchangepassword", "/superchangepassword1",
 						"/superadmreq", "/superdelete", "/adminsearch", "/supreditupdate", "/superviewprofessional",
-						"/supreg", "/supsave", "/deleteuserreg", "/supadminreg", "/deleteadminreg", "/supadminsave","/getallreg","/getalladminreg")
-				.permitAll().anyRequest().authenticated().and().exceptionHandling().and().cors().and()
-
-				// Use the
-				// configured
-				// CORS settings
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+						"/supreg", "/supsave", "/deleteuserreg", "/supadminreg", "/deleteadminreg", "/supadminsave",
+						"/getallreg", "/getalladminreg")
+				.permitAll()
+				.and() // Add this to separate JWT and OAuth configurations
+				.authorizeRequests()
+				.antMatchers("/loginoauth","/reg/**")
+				.permitAll() // Allow access to the OAuth2.0 login URL
+				.and() // Add this to separate JWT and OAuth configurations
+				.authorizeRequests()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.oauth2Login()
+				.successHandler(customAuthenticationSuccessHandler)
+				.and()
+				.exceptionHandling()
+				.and()
+				.cors()
+				.and()
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
+
 
 }

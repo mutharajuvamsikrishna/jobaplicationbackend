@@ -1,17 +1,24 @@
 package com.web.controller;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.web.dto.PerEmpResponseDTO;
+import com.web.model.Register;
 import com.web.service.PerEmpService;
 
+import com.web.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +52,31 @@ public class JobController {
 	OnieJobIdRepo jobRepo;
 	@Autowired
 	private PerEmpRepo perEmpRepository;
+@Autowired
+private JwtUtil jwtUtil;
+@Value("${applicationport}")
+private String frontendport;
+
+
+	@GetMapping("/loginoauth")
+	public ResponseEntity<Object> loginOauth(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		Register userEntity = (Register) session.getAttribute("userEntity");
+		System.out.println("UserEntity in controller: " + userEntity);
+
+		// Generate token
+		String token = jwtUtil.generateToken(userEntity.getEmail());
+		System.out.println("Generated Token: " + token);
+
+		// Redirect to the URL and include the token and email as query parameters
+		String redirectUrl = frontendport + token + "&email=" + userEntity.getEmail();
+		System.out.println("Redirect URL: " + redirectUrl);
+		return ResponseEntity.status(HttpStatus.FOUND)
+				.location(URI.create(redirectUrl))
+				.build();
+	}
+
+
 	@PostMapping("/prosave")
 	public String proSavecont(@RequestBody Pro pro) throws MessagingException {
 
