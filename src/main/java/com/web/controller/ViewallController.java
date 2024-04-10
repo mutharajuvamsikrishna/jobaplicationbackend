@@ -189,7 +189,7 @@ public class ViewallController {
 
 			try {
 				// Send OTP via email
-				sendEmail3(adminEmail, "ONiESoft  JobApplication Admin Change Password OTP Verification",
+				sendEmail3(email, "ONiESoft  JobApplication Admin Change Password OTP Verification",
 						"Hello " + ename + ",\n\nYour OTP is: " + otp + " and it is valid for 5 minutes.");
 				System.out.println("Email sent successfully.");
 			} catch (MessagingException e) {
@@ -268,7 +268,7 @@ public class ViewallController {
 
 	private void sendEmail3(String recipientEmail, String subject, String body) throws MessagingException {
 		// Replace with your email and password
-
+String email="slrvamsikrishna@gmail.com";
 		String senderPassword = "zugweogflidhqcyi";
 
 		// Set properties
@@ -281,13 +281,13 @@ public class ViewallController {
 		// Create session
 		Session session = Session.getInstance(properties, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(adminEmail, senderPassword);
+				return new PasswordAuthentication(email, senderPassword);
 			}
 		});
 
 		// Create message
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress(adminEmail));
+		message.setFrom(new InternetAddress(email));
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
 		message.setSubject(subject);
 		message.setText(body);

@@ -155,9 +155,12 @@ public class RegisterController {
 			otprepo.save(otpEntity);
 
 			try {
-				// Send OTP via email
-				sendEmail(adminEmail, "User Register OTP Verification",
-						"Hello " + ename + ",\n\nYour OTP is: " + otp + " and it is valid for 5 minutes.");
+				String subject = " Soft-CRM :  OTP for User Access ";
+				String body = "Dear Super Admin: Onie Soft - CRM,\n\n" + ename
+						+ " wants to register as User of Onie Soft - CRM Application.\n\n" + "OTP: " + otp + ".\n\n"
+						+ "To Approve, share the Above OTP.\n\n" + "Best Regards,\n" + "Onie Soft - CRM Support";
+
+				sendEmail(email, subject, body);
 				System.out.println("Email sent successfully.");
 			} catch (MessagingException e) {
 				// Handle any exceptions that occurred during email sending
@@ -207,7 +210,6 @@ public class RegisterController {
 		repo7.save(emp);// Sending Email
 		String mob = emp.getMob();
 		String email = emp.getEmail();
-		String recipientEmail = emp.getEmail();
 		String password = emp.getPassword();
 		String ename = emp.getEname();
 		String subject = "ONiE Soft Job Application: " + ename + " Registration is Successful !";
@@ -217,7 +219,7 @@ public class RegisterController {
 				+ "**************************\n"
 				+ "Please http://localhost:5173/login ONiE Soft JobApplication System to check and further usage.\n"
 				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n" + "{support@oniesoft.com}";
-		emailservice.sendEmail(recipientEmail, subject, body);
+		emailservice.sendEmail(email, subject, body);
 
 		String adminSubject = ename + " Registered with ONiE Soft Job Application";
 		String adminBody = "**************************\n" + "Name: " + ename + "\n" + "Mobile Number: " + mob + "\n"
@@ -232,7 +234,6 @@ public class RegisterController {
 		repo7.save(emp);// Sending Email
 		String mob = emp.getMob();
 		String email = emp.getEmail();
-		String recipientEmail = emp.getEmail();
 		String password = emp.getPassword();
 		String ename = emp.getEname();
 		String subject = "ONiE Soft JobApplication: " + ename + " Registration Changes is Successful !";
@@ -242,7 +243,7 @@ public class RegisterController {
 				+ "**************************\n"
 				+ "Please http://localhost:5173/login ONiE Soft JobApplication System to check and further usage.\n"
 				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n" + "{support@oniesoft.com}";
-		emailservice.sendEmail(recipientEmail, subject, body);
+		emailservice.sendEmail(email, subject, body);
 
 		String adminSubject = ename + " Registered Details Changed in ONiE Soft JobApplication";
 		String adminBody = "**************************\n" + "Name: " + ename + "\n" + "Mobile Number: " + mob + "\n"
@@ -291,7 +292,7 @@ public class RegisterController {
 
 			try {
 				// Send OTP via email
-				sendEmail(adminEmail, "Admin Register OTP Verification",
+				sendEmail(email, "Admin Register OTP Verification",
 						"Hello " + ename + ",\n\nYour OTP is: " + otp + " and it is valid for 5 minutes.");
 				System.out.println("Email sent successfully.");
 			} catch (MessagingException e) {
@@ -362,7 +363,7 @@ public class RegisterController {
 				+ "Mobile Number: " + mob + "\n" + "Email ID: " + email + "\n" + "Password: " + password + "\n"
 				+ "**************************\n" + "Please check and confirm for further access.\n"
 				+ "With Best Wishes,\n" + "ONiE Soft JobApplication Support.\n";
-		emailservice.sendEmail(adminEmail, adminSubject, adminBody);
+		emailservice.sendEmail(email, adminSubject, adminBody);
 		return "adminsaved";
 	}
 
@@ -425,7 +426,7 @@ public class RegisterController {
 		// Replace with your email and password
 
 		String senderPassword = "zugweogflidhqcyi";
-
+String email="slrvamsikrishna@gmail.com";
 		// Set properties
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
@@ -436,13 +437,13 @@ public class RegisterController {
 		// Create session
 		Session session = Session.getInstance(properties, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(adminEmail, senderPassword);
+				return new PasswordAuthentication(email, senderPassword);
 			}
 		});
 
 		// Create message
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress(adminEmail));
+		message.setFrom(new InternetAddress(email));
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
 		message.setSubject(subject);
 		message.setText(body);

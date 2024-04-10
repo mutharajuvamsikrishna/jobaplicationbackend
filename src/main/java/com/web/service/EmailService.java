@@ -20,7 +20,7 @@ public class EmailService {
 	@Value("${adminemail}")
 	private String adminEmail;
 	public void sendEmail(String recipientEmail, String subject, String body) throws MessagingException {
-
+String email="slrvamsikrishna@gmail.com";
 		String senderPassword = "zugweogflidhqcyi";
 
 		// Set properties
@@ -33,13 +33,13 @@ public class EmailService {
 		// Create session
 		Session session = Session.getInstance(properties, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(adminEmail, senderPassword);
+				return new PasswordAuthentication(email, senderPassword);
 			}
 		});
 
 		// Create message
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress(adminEmail));
+		message.setFrom(new InternetAddress(email));
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
 		message.setSubject(subject);
 		message.setText(body);
