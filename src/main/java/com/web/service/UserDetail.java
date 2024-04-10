@@ -45,5 +45,13 @@ public class UserDetail implements UserDetailsService {
 			throw new UsernameNotFoundException("User not found with email: " + register.getEmail());
 		}
 	}
+	public void loginAdminCred(Register1 register1) throws UsernameNotFoundException {
+		System.out.println("ok");
+		Register1 reg = repo1.findByEmailAndPassword(register1.getEmail(), register1.getPassword());
+		if (reg == null) {
+			throw new UsernameNotFoundException("User not found with email: " + register1.getEmail());
+		}
+	}
+
 
 }

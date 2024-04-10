@@ -11,13 +11,16 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
+	@Value("${adminemail}")
+	private String adminEmail;
 	public void sendEmail(String recipientEmail, String subject, String body) throws MessagingException {
-		// Replace with your email and password
-		String senderEmail = "slrvamsikrishna@gmail.com";
+
 		String senderPassword = "zugweogflidhqcyi";
 
 		// Set properties
@@ -30,13 +33,13 @@ public class EmailService {
 		// Create session
 		Session session = Session.getInstance(properties, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(senderEmail, senderPassword);
+				return new PasswordAuthentication(adminEmail, senderPassword);
 			}
 		});
 
 		// Create message
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress(senderEmail));
+		message.setFrom(new InternetAddress(adminEmail));
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
 		message.setSubject(subject);
 		message.setText(body);

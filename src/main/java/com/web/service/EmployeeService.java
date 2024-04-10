@@ -8,6 +8,7 @@ import javax.mail.MessagingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,8 @@ public class EmployeeService {
 	private RegisterRepo repo;
 	@Autowired
 	private ProRepo proRepo;
-
+@Value("${adminemail}")
+private String adminEmail;
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeService.class);
 
 	@Scheduled(cron = "0 44 14 * * ?")
@@ -57,8 +59,7 @@ public class EmployeeService {
 		String adminBody = "Admin, \n\nA reminder has been sent to the applicant with email " + email
 				+ " for the interview scheduled on " + interviewDate + " for the position of " + jobAppliedFor
 				+ ". Application ID: " + applicationId + ".";
-		String adminRecipientEmail = "slrvamsikrishna@gmail.com"; // Replace with your actual admin email
-		mailSender.sendEmail(adminRecipientEmail, adminSubject, adminBody);
+		mailSender.sendEmail(adminEmail, adminSubject, adminBody);
 	}
 
 }

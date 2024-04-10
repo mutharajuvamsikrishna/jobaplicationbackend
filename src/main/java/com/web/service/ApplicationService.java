@@ -3,6 +3,7 @@ package com.web.service;
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -23,7 +24,8 @@ public class ApplicationService {
 	PerEmpRepo repo1;
 	@Autowired
 	RegisterRepo regRepo;
-
+@Value("${adminemail}")
+private String adminEmail;
 	public String proSave(@RequestBody Pro pro) throws MessagingException {
 		String email = pro.getEmail();
 		String jobAppliedFor = pro.getId();
@@ -44,11 +46,10 @@ public class ApplicationService {
 				+ "\nNotice Period: " + noticePeriod
 				+ "\n\nPlease review the application at your earliest convenience.\n\nBest regards,\nThe Onie Soft System";
 
-		String adminRecipientEmail = "slrvamsikrishna@gmail.com";
 
 		emailservice.sendEmail(email, applicantSubject, applicantBody);
 
-		emailservice.sendEmail(adminRecipientEmail, adminSubject, adminBody);
+		emailservice.sendEmail(adminEmail, adminSubject, adminBody);
 		proRepo.save(pro);
 		return "SaveSucess";
 	}
@@ -65,7 +66,6 @@ public class ApplicationService {
 		String remarks = pro.getWorkedYears2();
 		String applicantSubject = "";
 		String applicantBody = "";
-		String adminRecipientEmail = "slrvamsikrishna@gmail.com";
 		String adminSubject = "";
 		String adminBody = "";
 		String companyName = "ONiE Soft";
@@ -81,7 +81,7 @@ public class ApplicationService {
 			adminSubject = "Interview Scheduled - " + companyName;
 			adminBody = "The interview for job " + jobAppliedFor + " with user " + ename + " and  Application ID is "
 					+ regno + "\n" + " is scheduled on " + intdate + ".";
-			emailservice.sendEmail(adminRecipientEmail, adminSubject, adminBody);
+			emailservice.sendEmail(adminEmail, adminSubject, adminBody);
 		} else if ("Rejected".equalsIgnoreCase(status)) {
 			// Send rejection email to user
 			applicantSubject = "Application Rejected by " + companyName;
@@ -93,7 +93,7 @@ public class ApplicationService {
 			adminSubject = "Application Rejected - " + companyName;
 			adminBody = "The application for job " + jobAppliedFor + " by user " + ename + " and Application ID "
 					+ regno + " has been rejected." + "because of " + remarks;
-			emailservice.sendEmail(adminRecipientEmail, adminSubject, adminBody);
+			emailservice.sendEmail(adminEmail, adminSubject, adminBody);
 		}
 		proRepo.save(pro);
 		return "UpdateSucess";
