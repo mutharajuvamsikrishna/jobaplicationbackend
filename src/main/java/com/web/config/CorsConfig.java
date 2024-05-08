@@ -14,13 +14,16 @@ public class CorsConfig {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
 
-		// Allow all origins, headers, and methods. This is just an example; you may
-		// want to configure it based on your needs.
-		config.addAllowedOrigin("*");
-		config.addAllowedHeader("*");
-		config.addAllowedMethod("*");
+		// Allow requests from http://localhost:5173
+		config.addAllowedOrigin("http://localhost:5173");
 
-		source.registerCorsConfiguration("/**", config);
+		// Allow the content-type header
+		config.addAllowedHeader("content-type");
+
+		// Allow POST method
+		config.addAllowedMethod("POST");
+
+		source.registerCorsConfiguration("/", config);
 		return new CorsFilter(source);
 	}
 }
