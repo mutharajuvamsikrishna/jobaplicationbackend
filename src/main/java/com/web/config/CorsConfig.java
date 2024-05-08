@@ -14,16 +14,15 @@ public class CorsConfig {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
 
-		// Allow requests from http://localhost:5173
-		config.addAllowedOrigin("http://localhost:5173");
+		// Allow all origins
+		config.addAllowedOrigin("*");
 
-		// Allow the content-type header
-		config.addAllowedHeader("content-type");
+		// Allow all headers
+		config.addAllowedHeader("*");
 
-		// Allow POST method
-		config.addAllowedMethod("POST");
+		// Allow all methods
+		config.addAllowedMethod("*");
 
 		source.registerCorsConfiguration("/", config);
 		return new CorsFilter(source);
-	}
-}
+}}
