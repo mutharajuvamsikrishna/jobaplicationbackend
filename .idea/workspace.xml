@@ -233,9 +233,9 @@
       <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.xml.core/system_catalog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.xml.core/system_catalog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/version.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/config/CorsConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/maven/com.slr/Springapp7/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Springapp7/target/classes/META-INF/maven/com.slr/Springapp7/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Springappn2/target/classes/META-INF/maven/com.vamsi/Springappn2/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Springappn2/target/classes/META-INF/maven/com.vamsi/Springappn2/pom.properties" afterDir="false" />
